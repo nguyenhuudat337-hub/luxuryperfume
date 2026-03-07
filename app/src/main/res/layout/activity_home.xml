@@ -5,18 +5,53 @@
     android:id="@+id/home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#660D1117"
+    android:background="@drawable/img_home"
     tools:context=".HomeActivity">
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_menu" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/style_bar"
+            android:drawableStart="@drawable/ic_search"
+            android:ems="10"
+            android:hint="search perfume"
+            android:inputType="text"
+            android:paddingStart="10dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/style_bar"
+            app:srcCompat="@drawable/ic_notifi" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@drawable/style_bar"
+        app:itemActiveIndicatorStyle="@null"
+        app:itemBackground="@drawable/style_bottom_item"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottombar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
