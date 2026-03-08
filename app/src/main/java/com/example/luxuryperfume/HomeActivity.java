@@ -1,4 +1,5 @@
 package com.example.luxuryperfume;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -7,6 +8,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -50,6 +53,43 @@ public class HomeActivity extends AppCompatActivity {
                     sliderHandler.postDelayed(sliderRunnable, 3000);
                 }
         });
+
+        TextView edtwomen = findViewById(R.id.c1);
+        edtwomen.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CategoriesWomen.class);
+            startActivity(intent);
+            finish();
+        });
+
+        TextView edtman = findViewById(R.id.c2);
+        edtman.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CategoriesMan.class);
+            startActivity(intent);
+            finish();
+        });
+
+        TextView edtluxury = findViewById(R.id.c3);
+        edtluxury.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CategoriesLuxury.class);
+            startActivity(intent);
+            finish();
+        });
+
+        TextView edtsale = findViewById(R.id.c4);
+        edtsale.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CategoriesSale.class);
+            startActivity(intent);
+            finish();
+        });
+
+
+        TextView edtnew = findViewById(R.id.c5);
+        edtnew.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, CategoriesNew.class);
+            startActivity(intent);
+            finish();
+        });
+
     }
 
 

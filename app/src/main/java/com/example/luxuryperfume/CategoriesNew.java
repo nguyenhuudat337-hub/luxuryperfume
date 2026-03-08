@@ -1,9 +1,13 @@
 package com.example.luxuryperfume;
 
+import android.content.Intent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -22,5 +26,13 @@ public class CategoriesNew extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button edtBack = findViewById(R.id.buttonnew);
+        edtBack.setOnClickListener(v -> {
+            Intent intent = new Intent(CategoriesNew.this,HomeActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
+
+
 }
