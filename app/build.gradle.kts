@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.legacy.support.v4)
     implementation(libs.viewpager2)
+    implementation(libs.gridlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -15,7 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     ViewPager2 bannerSlider;
@@ -89,6 +94,31 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerProducts);
+
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+        List<Product> product = new ArrayList<>();
+        product.add(new Product("Dior Sauvage", "$120", R.drawable.perfume1));
+        product.add(new Product("Versace", "$135", R.drawable.perfume2));
+        product.add(new Product("YSL Y Eau de Parfum", "$210", R.drawable.perfume3));
+        product.add(new Product("Bleu de Chanel", "$325", R.drawable.perfume4));
+        product.add(new Product("Tom Ford Oud Wood", "$145", R.drawable.perfume5));
+        product.add(new Product("Acqua di Gio Profumo", "$150", R.drawable.perfume6));
+
+        product.add(new Product("Creed Aventus", "$110", R.drawable.perfume7));
+        product.add(new Product("Paco Rabanne 1 Million", "$115", R.drawable.perfume8));
+        product.add(new Product("Jean Paul Gaultier Le Male", "$125", R.drawable.perfume9));
+        product.add(new Product("Maison Francis Kurkdjian Baccarat Rouge 540", "$350", R.drawable.perfume10));
+        product.add(new Product("Parfums de Marly Layton", "$280", R.drawable.perfume11));
+
+
+
+
+        ProductAdapter adapter = new ProductAdapter(product);
+
+        recyclerView.setAdapter(adapter);
 
     }
 

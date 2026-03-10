@@ -8,72 +8,38 @@
     android:background="@drawable/img_home"
     tools:context=".HomeActivity">
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/style_bar"
-            android:drawableStart="@drawable/ic_search"
-            android:ems="10"
-            android:hint="search perfume"
-            android:inputType="text"
-            android:paddingStart="10dp" />
-
-        <ImageButton
-            android:id="@+id/imageButton6"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="@drawable/style_bar"
-            app:srcCompat="@drawable/ic_notifi" />
-    </LinearLayout>
-
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
-        android:layout_width="409dp"
-        android:layout_height="573dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/bannerSlider"
                 android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="100dp"
                 android:layout_height="180dp"
-                android:layout_margin="10dp"/>
-
+                 />
 
             <LinearLayout
                 android:id="@+id/layoutIndicator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal"/>
+                android:gravity="center"
+                android:orientation="horizontal" />
 
 
             <TextView
@@ -88,7 +54,6 @@
                 android:textStyle="bold" />
 
 
-
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -96,67 +61,68 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
                     <TextView
                         android:id="@+id/c1"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Women"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/style_bar"
-                        android:padding="10dp"
                         android:layout_marginEnd="10dp"
-                        android:gravity="center"/>
+                        android:background="@drawable/style_bar"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Women"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/c2"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Man"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/style_bar"
-                        android:padding="10dp"
                         android:layout_marginEnd="10dp"
-                        android:gravity="center"/>
+                        android:background="@drawable/style_bar"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Man"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/c3"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Luxury"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/style_bar"
-                        android:padding="10dp"
                         android:layout_marginEnd="10dp"
-                        android:gravity="center"/>
+                        android:background="@drawable/style_bar"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Luxury"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/c4"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="Sale"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/style_bar"
-                        android:padding="10dp"
                         android:layout_marginEnd="10dp"
-                        android:gravity="center"/>
+                        android:background="@drawable/style_bar"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Sale"
+                        android:textColor="#FFFFFF" />
 
                     <TextView
                         android:id="@+id/c5"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:text="New"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/style_bar"
-                        android:padding="10dp"
                         android:layout_marginEnd="10dp"
-                        android:gravity="center"/>
+                        android:background="@drawable/style_bar"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="New"
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
             </HorizontalScrollView>
+
 
             <TextView
                 android:id="@+id/textView4"
@@ -184,140 +150,141 @@
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="12dp">
+                        android:layout_margin="12dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/perfume1"/>
+                            android:src="@drawable/perfume1" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dior Sauvage"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$120"
-                            android:textColor="#FFD700"/>
+                            android:textColor="#FFD700" />
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="12dp">
+                        android:layout_margin="12dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/perfume2"/>
+                            android:src="@drawable/perfume2" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Versace"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$200"
-                            android:textColor="#FFD700"/>
+                            android:textColor="#FFD700" />
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="12dp">
+                        android:layout_margin="12dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/perfume3"/>
+                            android:src="@drawable/perfume3" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yves Saint Laurent"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$250"
-                            android:textColor="#FFD700"/>
+                            android:textColor="#FFD700" />
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="12dp">
+                        android:layout_margin="12dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/perfume4"/>
+                            android:src="@drawable/perfume4" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Bleu Chanel"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$215"
-                            android:textColor="#FFD700"/>
+                            android:textColor="#FFD700" />
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_margin="12dp">
+                        android:layout_margin="12dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="140dp"
                             android:layout_height="140dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/perfume5"/>
+                            android:src="@drawable/perfume5" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Tom Ford"
                             android:textColor="@android:color/white"
-                            android:textSize="14sp"/>
+                            android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$300"
-                            android:textColor="#FFD700"/>
+                            android:textColor="#FFD700" />
                     </LinearLayout>
 
                 </LinearLayout>
 
             </HorizontalScrollView>
+
 
             <TextView
                 android:id="@+id/textView5"
@@ -331,10 +298,52 @@
                 android:textStyle="bold" />
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"/>
+
+
+
+
+
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="320dp"
+            android:layout_height="65dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/style_bar"
+            android:drawableStart="@drawable/ic_search"
+            android:ems="10"
+            android:hint="search perfume"
+            android:inputType="text"
+            android:paddingStart="10dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/style_bar"
+            app:srcCompat="@drawable/ic_notifi" />
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
