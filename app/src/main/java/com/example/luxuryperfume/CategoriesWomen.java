@@ -28,8 +28,6 @@ public class CategoriesWomen extends AppCompatActivity {
 
         Button edtBack = findViewById(R.id.buttonwomen);
         edtBack.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoriesWomen.this,HomeActivity.class);
-            startActivity(intent);
             finish();
         });
     }

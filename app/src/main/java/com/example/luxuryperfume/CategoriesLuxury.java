@@ -28,8 +28,6 @@ public class CategoriesLuxury extends AppCompatActivity {
 
         Button edtBack = findViewById(R.id.buttonlux);
         edtBack.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoriesLuxury.this,HomeActivity.class);
-            startActivity(intent);
             finish();
         });
     }

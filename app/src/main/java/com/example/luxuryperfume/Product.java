@@ -5,10 +5,17 @@ public class Product {
     private String price;
     private int image;
 
-    public Product(String name, String price, int image) {
+    private String description;
+
+    public Product(String name, String price, int image,String description) {
         this.name = name;
         this.price = price;
         this.image = image;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getName() {

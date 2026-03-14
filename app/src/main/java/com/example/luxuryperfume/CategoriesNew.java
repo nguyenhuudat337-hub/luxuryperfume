@@ -28,8 +28,6 @@ public class CategoriesNew extends AppCompatActivity {
         });
         Button edtBack = findViewById(R.id.buttonnew);
         edtBack.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoriesNew.this,HomeActivity.class);
-            startActivity(intent);
             finish();
         });
     }

@@ -63,28 +63,24 @@ public class HomeActivity extends AppCompatActivity {
         edtwomen.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CategoriesWomen.class);
             startActivity(intent);
-            finish();
         });
 
         TextView edtman = findViewById(R.id.c2);
         edtman.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CategoriesMan.class);
             startActivity(intent);
-            finish();
         });
 
         TextView edtluxury = findViewById(R.id.c3);
         edtluxury.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CategoriesLuxury.class);
             startActivity(intent);
-            finish();
         });
 
         TextView edtsale = findViewById(R.id.c4);
         edtsale.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CategoriesSale.class);
             startActivity(intent);
-            finish();
         });
 
 
@@ -92,7 +88,6 @@ public class HomeActivity extends AppCompatActivity {
         edtnew.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, CategoriesNew.class);
             startActivity(intent);
-            finish();
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerProducts);
@@ -100,18 +95,82 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
         List<Product> product = new ArrayList<>();
-        product.add(new Product("Dior Sauvage", "$120", R.drawable.perfume1));
-        product.add(new Product("Versace", "$135", R.drawable.perfume2));
-        product.add(new Product("YSL Y Eau de Parfum", "$210", R.drawable.perfume3));
-        product.add(new Product("Bleu de Chanel", "$325", R.drawable.perfume4));
-        product.add(new Product("Tom Ford Oud Wood", "$145", R.drawable.perfume5));
-        product.add(new Product("Acqua di Gio Profumo", "$150", R.drawable.perfume6));
+        product.add(new Product(
+                "Dior Sauvage",
+                "$120",
+                R.drawable.perfume1,
+                "Dior Sauvage là dòng nước hoa nam mang phong cách mạnh mẽ và nam tính. Hương cam bergamot tươi mát kết hợp với tiêu Tứ Xuyên và ambroxan tạo nên mùi hương hiện đại, cuốn hút và rất dễ dùng hằng ngày."
+        ));
 
-        product.add(new Product("Creed Aventus", "$110", R.drawable.perfume7));
-        product.add(new Product("Paco Rabanne 1 Million", "$115", R.drawable.perfume8));
-        product.add(new Product("Jean Paul Gaultier Le Male", "$125", R.drawable.perfume9));
-        product.add(new Product("Maison Francis Kurkdjian Baccarat Rouge 540", "$350", R.drawable.perfume10));
-        product.add(new Product("Parfums de Marly Layton", "$280", R.drawable.perfume11));
+        product.add(new Product(
+                "Versace",
+                "$135",
+                R.drawable.perfume2,
+                "Versace Eros mang phong cách quyến rũ và tràn đầy năng lượng. Hương bạc hà tươi mát kết hợp với táo xanh và vanilla ngọt nhẹ tạo nên mùi hương nổi bật, thích hợp cho những buổi tiệc và hẹn hò."
+        ));
+
+        product.add(new Product(
+                "YSL Y Eau de Parfum",
+                "$210",
+                R.drawable.perfume3,
+                "YSL Y Eau de Parfum là biểu tượng của người đàn ông hiện đại, tự tin và đầy tham vọng. Hương táo xanh, gừng và gỗ tuyết tùng tạo nên sự cân bằng hoàn hảo giữa tươi mát và ấm áp."
+        ));
+
+        product.add(new Product(
+                "Bleu de Chanel",
+                "$325",
+                R.drawable.perfume4,
+                "Bleu de Chanel mang phong cách thanh lịch và tinh tế. Sự kết hợp giữa cam chanh tươi mát, gừng cay nhẹ và gỗ đàn hương tạo nên mùi hương sang trọng, phù hợp cho cả công việc và những dịp đặc biệt."
+        ));
+
+        product.add(new Product(
+                "Tom Ford Oud Wood",
+                "$145",
+                R.drawable.perfume5,
+                "Tom Ford Oud Wood là dòng nước hoa cao cấp với mùi hương trầm ấm và bí ẩn. Hương gỗ oud quý hiếm kết hợp với gỗ đàn hương và vanilla tạo nên cảm giác sang trọng và đẳng cấp."
+        ));
+
+        product.add(new Product(
+                "Acqua di Gio Profumo",
+                "$150",
+                R.drawable.perfume6,
+                "Acqua di Gio Profumo mang hơi thở của đại dương kết hợp với sự mạnh mẽ của hương gỗ và nhang trầm. Mùi hương tươi mát nhưng sâu lắng, rất phù hợp với những người đàn ông trưởng thành."
+        ));
+
+        product.add(new Product(
+                "Creed Aventus",
+                "$110",
+                R.drawable.perfume7,
+                "Creed Aventus là một trong những dòng nước hoa nam nổi tiếng nhất thế giới. Hương dứa tươi mát kết hợp với gỗ bạch dương và xạ hương tạo nên mùi hương mạnh mẽ, quyền lực và đầy cuốn hút."
+        ));
+
+        product.add(new Product(
+                "Paco Rabanne 1 Million",
+                "$115",
+                R.drawable.perfume8,
+                "Paco Rabanne 1 Million nổi bật với phong cách táo bạo và quyến rũ. Hương quế, da thuộc và hổ phách tạo nên mùi hương ấm áp, thu hút và rất thích hợp cho những buổi tối đặc biệt."
+        ));
+
+        product.add(new Product(
+                "Jean Paul Gaultier Le Male",
+                "$125",
+                R.drawable.perfume9,
+                "Jean Paul Gaultier Le Male là dòng nước hoa cổ điển nhưng vẫn rất hiện đại. Hương bạc hà, lavender và vanilla tạo nên mùi hương ngọt nhẹ, nam tính và dễ gây ấn tượng."
+        ));
+
+        product.add(new Product(
+                "Maison Francis Kurkdjian Baccarat Rouge 540",
+                "$350",
+                R.drawable.perfume10,
+                "Baccarat Rouge 540 là dòng nước hoa niche cực kỳ nổi tiếng với mùi hương sang trọng và độc đáo. Sự kết hợp giữa nghệ tây, hổ phách và gỗ tuyết tùng tạo nên mùi hương ấm áp, tinh tế và đầy mê hoặc."
+        ));
+
+        product.add(new Product(
+                "Parfums de Marly Layton",
+                "$280",
+                R.drawable.perfume11,
+                "Layton của Parfums de Marly mang phong cách quý tộc và sang trọng. Hương táo, vanilla và gỗ tạo nên sự hòa quyện hoàn hảo giữa ngọt ngào, ấm áp và nam tính."
+        ));
 
 
 
@@ -119,6 +178,8 @@ public class HomeActivity extends AppCompatActivity {
         ProductAdapter adapter = new ProductAdapter(product);
 
         recyclerView.setAdapter(adapter);
+
+
 
     }
 

@@ -1,5 +1,7 @@
 package com.example.luxuryperfume;
 import androidx.annotation.NonNull;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +37,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.txtName.setText(product.getName());
         holder.txtPrice.setText(product.getPrice());
         holder.imgProduct.setImageResource(product.getImage());
+
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(v.getContext(), ProductDetail.class);
+
+            intent.putExtra("name", product.getName());
+            intent.putExtra("price", product.getPrice());
+            intent.putExtra("image", product.getImage());
+            intent.putExtra("description", product.getDescription());
+
+            v.getContext().startActivity(intent);
+
+        });
     }
 
     @Override

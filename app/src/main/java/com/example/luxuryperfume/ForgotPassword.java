@@ -59,8 +59,7 @@ public class ForgotPassword extends AppCompatActivity {
         });
         Button edtButtonBack = findViewById(R.id.button4);
         edtButtonBack.setOnClickListener(v -> {
-            Intent intent = new Intent(ForgotPassword.this, MainActivity.class);
-            startActivity(intent);
+            finish();
         });
     }
 

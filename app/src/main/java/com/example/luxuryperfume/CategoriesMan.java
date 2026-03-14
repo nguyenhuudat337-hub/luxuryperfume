@@ -24,8 +24,6 @@ public class CategoriesMan extends AppCompatActivity {
 
         Button edtBack = findViewById(R.id.button5);
         edtBack.setOnClickListener(v -> {
-            Intent intent = new Intent(CategoriesMan.this,HomeActivity.class);
-            startActivity(intent);
             finish();
         });
     }

@@ -55,8 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         Button edtButtonBack = findViewById(R.id.button3);
         edtButtonBack.setOnClickListener(v -> {
-            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-            startActivity(intent);
+            finish();
         });
     }
 }
