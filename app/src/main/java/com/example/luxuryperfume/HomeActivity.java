@@ -15,9 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -179,11 +183,110 @@ public class HomeActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+        LinearLayout product1 = findViewById(R.id.l1);
+        LinearLayout product2 = findViewById(R.id.l2);
+        LinearLayout product3 = findViewById(R.id.l3);
+        LinearLayout product4 = findViewById(R.id.l4);
+        LinearLayout product5 = findViewById(R.id.l5);
+
+        product1.setOnClickListener(v -> {
+
+            Intent intent = new Intent(HomeActivity.this, ProductDetail.class);
+
+            intent.putExtra("name", "Dior Sauvage");
+            intent.putExtra("price", "$120");
+            intent.putExtra("image", R.drawable.perfume1);
+            intent.putExtra("description",
+                    "Dior Sauvage là dòng nước hoa nam mạnh mẽ và nam tính.");
+
+            startActivity(intent);
+        });
+
+        product2.setOnClickListener(v -> {
+
+            Intent intent = new Intent(HomeActivity.this, ProductDetail.class);
+
+            intent.putExtra("name", "Versace");
+            intent.putExtra("price", "$135");
+            intent.putExtra("image", R.drawable.perfume2);
+            intent.putExtra("description",
+                    "Versace Eros mang phong cách quyến rũ và tràn đầy năng lượng. Hương bạc hà tươi mát kết hợp với táo xanh và vanilla ngọt nhẹ tạo nên mùi hương nổi bật, thích hợp cho những buổi tiệc và hẹn hò.");
+
+            startActivity(intent);
+        });
+
+        product3.setOnClickListener(v -> {
+
+            Intent intent = new Intent(HomeActivity.this, ProductDetail.class);
+
+            intent.putExtra("name", "YSL Y Eau de Parfum");
+            intent.putExtra("price", "$210");
+            intent.putExtra("image", R.drawable.perfume3);
+            intent.putExtra("description",
+                    "YSL Y Eau de Parfum là biểu tượng của người đàn ông hiện đại, tự tin và đầy tham vọng. Hương táo xanh, gừng và gỗ tuyết tùng tạo nên sự cân bằng hoàn hảo giữa tươi mát và ấm áp.");
+
+            startActivity(intent);
+        });
 
 
+        product4.setOnClickListener(v -> {
+
+            Intent intent = new Intent(HomeActivity.this, ProductDetail.class);
+
+            intent.putExtra("name", "Bleu de Chanel");
+            intent.putExtra("price", "$325");
+            intent.putExtra("image", R.drawable.perfume4);
+            intent.putExtra("description",
+                    "Bleu de Chanel mang phong cách thanh lịch và tinh tế. Sự kết hợp giữa cam chanh tươi mát, gừng cay nhẹ và gỗ đàn hương tạo nên mùi hương sang trọng, phù hợp cho cả công việc và những dịp đặc biệt.");
+
+            startActivity(intent);
+        });
+
+
+        product5.setOnClickListener(v -> {
+
+            Intent intent = new Intent(HomeActivity.this, ProductDetail.class);
+
+            intent.putExtra("name", "Tom Ford Oud Wood");
+            intent.putExtra("price", "$145");
+            intent.putExtra("image", R.drawable.perfume5);
+            intent.putExtra("description",
+                    "Tom Ford Oud Wood là dòng nước hoa cao cấp với mùi hương trầm ấm và bí ẩn. Hương gỗ oud quý hiếm kết hợp với gỗ đàn hương và vanilla tạo nên cảm giác sang trọng và đẳng cấp.");
+
+            startActivity(intent);
+        });
+
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigationView);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+
+            Fragment fragment = null;
+
+            if(item.getItemId() == R.id.home){
+                fragment = new HomeFragment();
+            }
+
+            if(item.getItemId() == R.id.favorite){
+                fragment = new FavoriteFragment();
+            }
+
+            if(item.getItemId() == R.id.cart){
+                fragment = new CartFragment();
+            }
+
+            if(item.getItemId() == R.id.person){
+                fragment = new ProfileFragment();
+            }
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frame_container, fragment)
+                    .commit();
+
+            return true;
+        });
     }
-
-
 
 
     private void setCurrentIndicator(int position) {
