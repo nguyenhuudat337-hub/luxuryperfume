@@ -3,6 +3,7 @@ package com.example.luxuryperfume;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class ProductDetail extends AppCompatActivity {
         String price = intent.getStringExtra("price");
         int image = intent.getIntExtra("image", 0);
         String description = intent.getStringExtra("description");
+        boolean isFavorite = intent.getBooleanExtra("isFavorite", false);
 
         txtName.setText(name);
         txtPrice.setText(price);
@@ -49,5 +51,18 @@ public class ProductDetail extends AppCompatActivity {
         button3.setOnClickListener(v -> {
             finish();
         });
+
+        ImageButton btnFavoriteDetail = findViewById(R.id.imageButton2);
+
+        // Trong onCreate của ProductDetail
+        Product product = (Product) getIntent().getSerializableExtra("product_obj");
+
+        if (isFavorite) {
+            btnFavoriteDetail.setImageResource(R.drawable.ic_favoritedam);
+        } else {
+            btnFavoriteDetail.setImageResource(R.drawable.ic_favorite);
+        }
+
+
     }
 }

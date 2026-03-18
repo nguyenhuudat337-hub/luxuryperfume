@@ -7,11 +7,17 @@ public class Product {
 
     private String description;
 
+    private boolean isFavorite ;
+
+
+
+
     public Product(String name, String price, int image,String description) {
         this.name = name;
         this.price = price;
         this.image = image;
         this.description = description;
+        this.isFavorite = false;
     }
 
     public String getDescription() {
@@ -28,5 +34,13 @@ public class Product {
 
     public int getImage() {
         return image;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 }
