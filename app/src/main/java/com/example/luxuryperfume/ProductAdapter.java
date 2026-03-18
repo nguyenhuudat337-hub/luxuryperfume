@@ -1,5 +1,4 @@
 package com.example.luxuryperfume;
-import androidx.annotation.NonNull;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,13 +8,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
-    List<Product> productList;
+    private List<Product> productList;
 
     public ProductAdapter(List<Product> productList) {
         this.productList = productList;
@@ -24,59 +24,39 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_product, parent, false);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         Product product = productList.get(position);
 
         holder.txtName.setText(product.getName());
         holder.txtPrice.setText(product.getPrice());
         holder.imgProduct.setImageResource(product.getImage());
 
-
-        if (product.isFavorite()) {
-            holder.btnFavoriteItem.setImageResource(R.drawable.ic_favoritedam); // Trái tim đậm
+        // Cập nhật icon trái tim dựa trên FavoriteManager
+        if (FavoriteManager.isFavorite(product)) {
+            holder.btnFavoriteItem.setImageResource(R.drawable.ic_favoritedam);
         } else {
-            holder.btnFavoriteItem.setImageResource(R.drawable.ic_favorite); // Trái tim rỗng
+            holder.btnFavoriteItem.setImageResource(R.drawable.ic_favorite);
         }
 
-
+        // Click trái tim ở màn hình danh sách
         holder.btnFavoriteItem.setOnClickListener(v -> {
-            if (product.isFavorite()) {
-                FavoriteManager.removeFromFavorite(product);
-            } else {
-                FavoriteManager.addToFavorite(product);
-            }
-            // Cập nhật lại giao diện của đúng item đó để đổi màu trái tim
+            FavoriteManager.toggleFavorite(product);
             notifyItemChanged(position);
         });
 
+        // Click vào item để xem chi tiết
         holder.itemView.setOnClickListener(v -> {
-
             Intent intent = new Intent(v.getContext(), ProductDetail.class);
-
-            intent.putExtra("name", product.getName());
-            intent.putExtra("price", product.getPrice());
-            intent.putExtra("image", product.getImage());
-            intent.putExtra("description", product.getDescription());
-            intent.putExtra("isFavorite", product.isFavorite());
-
+            // Gửi toàn bộ đối tượng Product
+            intent.putExtra("product_obj", product);
             v.getContext().startActivity(intent);
-
         });
-
-
-
-
-
-
     }
 
     @Override
@@ -84,12 +64,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return productList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageButton btnFavoriteItem;
         TextView txtName, txtPrice;
         ImageView imgProduct;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            // Lưu ý: Đảm bảo ID này khớp với file item_product.xml của bạn
             btnFavoriteItem = itemView.findViewById(R.id.btnFavoriteItem);
             txtName = itemView.findViewById(R.id.txtName);
             txtPrice = itemView.findViewById(R.id.txtPrice);

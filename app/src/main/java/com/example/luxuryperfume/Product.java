@@ -1,16 +1,13 @@
 package com.example.luxuryperfume;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String name;
     private String price;
     private int image;
-
     private String description;
-
-    private boolean isFavorite ;
-
-
-
+    private boolean isFavorite;
 
     public Product(String name, String price, int image,String description) {
         this.name = name;
@@ -42,5 +39,19 @@ public class Product {
 
     public void setFavorite(boolean isFavorite) {
         this.isFavorite = isFavorite;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return name != null ? name.equals(product.name) : product.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return name != null ? name.hashCode() : 0;
     }
 }

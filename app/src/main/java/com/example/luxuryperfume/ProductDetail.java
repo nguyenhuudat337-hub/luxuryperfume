@@ -1,6 +1,5 @@
 package com.example.luxuryperfume;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,6 +16,8 @@ public class ProductDetail extends AppCompatActivity {
     ImageView imgProduct;
     TextView txtName, txtPrice, txtDescription;
     RatingBar ratingBar;
+    ImageButton btnFavoriteDetail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,43 +27,45 @@ public class ProductDetail extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         imgProduct = findViewById(R.id.imgProduct);
         txtName = findViewById(R.id.txtName);
         txtPrice = findViewById(R.id.txtPrice);
         txtDescription = findViewById(R.id.txtDescription);
         ratingBar = findViewById(R.id.ratingBar);
+        btnFavoriteDetail = findViewById(R.id.imageButton2);
 
-        Intent intent = getIntent();
+        // Nhận đối tượng Product từ Intent
+        Product product = (Product) getIntent().getSerializableExtra("product_obj");
 
-        String name = intent.getStringExtra("name");
-        String price = intent.getStringExtra("price");
-        int image = intent.getIntExtra("image", 0);
-        String description = intent.getStringExtra("description");
-        boolean isFavorite = intent.getBooleanExtra("isFavorite", false);
-
-        txtName.setText(name);
-        txtPrice.setText(price);
-        txtDescription.setText(description);
-        imgProduct.setImageResource(image);
+        if (product != null) {
+            txtName.setText(product.getName());
+            txtPrice.setText(product.getPrice());
+            txtDescription.setText(product.getDescription());
+            imgProduct.setImageResource(product.getImage());
+            
+            // Cập nhật trạng thái icon trái tim ban đầu
+            updateFavoriteIcon(product);
+        }
 
         ratingBar.setRating(4.5f);
 
-        Button button3 = findViewById(R.id.Button3);
-        button3.setOnClickListener(v -> {
-            finish();
+        findViewById(R.id.Button3).setOnClickListener(v -> finish());
+
+        // Xử lý click nút yêu thích trong màn hình chi tiết
+        btnFavoriteDetail.setOnClickListener(v -> {
+            if (product != null) {
+                FavoriteManager.toggleFavorite(product);
+                updateFavoriteIcon(product);
+            }
         });
+    }
 
-        ImageButton btnFavoriteDetail = findViewById(R.id.imageButton2);
-
-        // Trong onCreate của ProductDetail
-        Product product = (Product) getIntent().getSerializableExtra("product_obj");
-
-        if (isFavorite) {
+    private void updateFavoriteIcon(Product product) {
+        if (FavoriteManager.isFavorite(product)) {
             btnFavoriteDetail.setImageResource(R.drawable.ic_favoritedam);
         } else {
             btnFavoriteDetail.setImageResource(R.drawable.ic_favorite);
         }
-
-
     }
 }

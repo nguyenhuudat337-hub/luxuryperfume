@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     ViewPager2 bannerSlider;
     LinearLayout layoutIndicator;
     Handler sliderHandler = new Handler(Looper.getMainLooper());
+    private ProductAdapter adapter;
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
@@ -179,7 +180,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        ProductAdapter adapter = new ProductAdapter(product);
+        adapter = new ProductAdapter(product);
 
         recyclerView.setAdapter(adapter);
 
@@ -286,6 +287,14 @@ public class HomeActivity extends AppCompatActivity {
 
             return true;
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged(); // Làm mới danh sách khi quay lại màn hình Home
+        }
     }
 
 
