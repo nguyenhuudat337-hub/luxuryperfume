@@ -34,7 +34,12 @@ public class FavoriteFragment extends Fragment {
     private void updateFavoriteList() {
         // Lấy danh sách sản phẩm đã lưu trong FavoriteManager
         List<Product> favoriteList = FavoriteManager.getFavoriteList();
-        adapter = new ProductAdapter(favoriteList);
+        adapter = new ProductAdapter(favoriteList, new ProductAdapter.OnFavoriteChangeListener() {
+            @Override
+            public void onFavoriteChanged() {
+                updateFavoriteList();
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 }

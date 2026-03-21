@@ -17,9 +17,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     private List<Product> productList;
 
-    public ProductAdapter(List<Product> productList) {
-        this.productList = productList;
+    public interface OnFavoriteChangeListener {
+        void onFavoriteChanged();
     }
+
+    private OnFavoriteChangeListener listener;
+    public ProductAdapter(List<Product> productList,OnFavoriteChangeListener listener) {
+        this.productList = productList;
+        this.listener = listener;
+    }
+
 
     @NonNull
     @Override
@@ -48,6 +55,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.btnFavoriteItem.setOnClickListener(v -> {
             FavoriteManager.toggleFavorite(product);
             notifyItemChanged(position);
+            if (listener != null) {
+                listener.onFavoriteChanged();
+            }
         });
 
         // Click vào item để xem chi tiết

@@ -6,6 +6,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -16,7 +17,7 @@ public class ProductDetail extends AppCompatActivity {
     ImageView imgProduct;
     TextView txtName, txtPrice, txtDescription;
     RatingBar ratingBar;
-    ImageButton btnFavoriteDetail;
+    ImageButton btnFavoriteDetail, btnAddToCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class ProductDetail extends AppCompatActivity {
         txtDescription = findViewById(R.id.txtDescription);
         ratingBar = findViewById(R.id.ratingBar);
         btnFavoriteDetail = findViewById(R.id.imageButton2);
+        btnAddToCart = findViewById(R.id.imageButton);
 
         // Nhận đối tượng Product từ Intent
         Product product = (Product) getIntent().getSerializableExtra("product_obj");
@@ -44,8 +46,9 @@ public class ProductDetail extends AppCompatActivity {
             txtDescription.setText(product.getDescription());
             imgProduct.setImageResource(product.getImage());
             
-            // Cập nhật trạng thái icon trái tim ban đầu
+            // Cập nhật trạng thái icon ban đầu
             updateFavoriteIcon(product);
+            updateCartIcon(product);
         }
 
         ratingBar.setRating(4.5f);
@@ -59,6 +62,15 @@ public class ProductDetail extends AppCompatActivity {
                 updateFavoriteIcon(product);
             }
         });
+
+        // Xử lý click nút thêm vào giỏ hàng
+        btnAddToCart.setOnClickListener(v -> {
+            if (product != null) {
+                boolean wasInCart = CartManager.isInCart(product);
+                CartManager.toggleCart(product);
+                updateCartIcon(product);
+            }
+        });
     }
 
     private void updateFavoriteIcon(Product product) {
@@ -66,6 +78,16 @@ public class ProductDetail extends AppCompatActivity {
             btnFavoriteDetail.setImageResource(R.drawable.ic_favoritedam);
         } else {
             btnFavoriteDetail.setImageResource(R.drawable.ic_favorite);
+        }
+    }
+
+    private void updateCartIcon(Product product) {
+        if (CartManager.isInCart(product)) {
+            // Giả sử bạn có icon ic_cart_filled hoặc tương tự để biểu thị đã trong giỏ
+            // Nếu không có, tôi sẽ dùng ic_cart bình thường nhưng logic vẫn thêm vào CartManager
+            btnAddToCart.setImageResource(R.drawable.ic_cartdam);
+        } else {
+            btnAddToCart.setImageResource(R.drawable.ic_cart);
         }
     }
 }
