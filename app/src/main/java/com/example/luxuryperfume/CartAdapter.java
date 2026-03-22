@@ -1,6 +1,8 @@
 package com.example.luxuryperfume;
 
-import android.content.Context;import android.view.LayoutInflater;
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -93,6 +95,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             }
         });
 
+
+        holder.itemView.setOnClickListener(v -> {
+            // Tạo Intent để chuyển sang ProductDetail
+            Intent intent = new Intent(context, ProductDetail.class);
+
+            // Gửi đối tượng product sang (Lưu ý: Class Product phải implements Serializable)
+            intent.putExtra("product_obj", product);
+
+            // Bắt đầu Activity
+            context.startActivity(intent);
+        });
 
     }
 
