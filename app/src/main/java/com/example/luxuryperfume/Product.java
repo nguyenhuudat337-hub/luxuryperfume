@@ -8,6 +8,10 @@ public class Product implements Serializable {
     private int image;
     private String description;
     private boolean isFavorite;
+    private int quantity = 1;
+
+    private boolean isSelected = false;
+
 
     public Product(String name, String price, int image,String description) {
         this.name = name;
@@ -53,5 +57,19 @@ public class Product implements Serializable {
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean isSelected) {
+        this.isSelected = isSelected;
     }
 }
