@@ -441,10 +441,9 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/style_bar"
+        android:background="@drawable/style_thanhngang"
         app:labelVisibilityMode="unlabeled"
         app:itemActiveIndicatorStyle="@null"
         app:itemBackground="@drawable/style_bottom_item"

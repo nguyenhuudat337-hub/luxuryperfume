@@ -9,7 +9,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="745dp"
         android:fillViewport="true">
 
 
@@ -40,7 +40,6 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Favorite"
             android:textColor="#FFFFFF"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,7 +18,6 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:text="Profile"
             android:textColor="#FFFFFF"
@@ -25,5 +25,176 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="745dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp">
+
+
+
+            <FrameLayout
+                android:id="@+id/imgProfile"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:background="@drawable/style_profile"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/img_profile"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/style_profile"
+                    android:clipToOutline="true" />
+            </FrameLayout>
+
+
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:text="Nguyễn Hữu Đạt" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="UserName" />
+
+
+            <EditText
+                android:id="@+id/editTextText3"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/style_box"
+                android:ems="10"
+                android:inputType="text"/>
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="PhoneNumber" />
+
+
+
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/style_box"
+                android:ems="10"
+                android:inputType="phone" />
+
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="PassWord" />
+
+            <EditText
+                android:id="@+id/editTextTextPassword3"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"
+                android:ems="10"
+                android:background="@drawable/style_box"
+                android:inputType="textPassword" />
+
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Email" />
+
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/style_box"
+                android:inputType="textEmailAddress" />
+
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Address" />
+
+
+            <EditText
+                android:id="@+id/editTextText4"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:background="@drawable/style_box"
+                android:inputType="text"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>
