@@ -93,6 +93,9 @@ public class HomeFragment extends Fragment {
 
         // Khởi tạo các sự kiện click cho BestSellers
         setupBestSellers(view);
+
+
+        view.findViewById(R.id.imageButton6).setOnClickListener(v -> startActivity(new Intent(getContext(), NotificationActivity.class)));
     }
 
     private List<Product> getProducts() {

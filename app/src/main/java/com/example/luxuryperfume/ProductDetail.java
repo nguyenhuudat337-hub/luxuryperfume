@@ -53,7 +53,11 @@ public class ProductDetail extends AppCompatActivity {
 
         ratingBar.setRating(4.5f);
 
-        findViewById(R.id.Button3).setOnClickListener(v -> finish());
+        Button btnBack = findViewById(R.id.button3);
+        btnBack.setOnClickListener(v -> {
+            finish();
+        });
+
 
         // Xử lý click nút yêu thích trong màn hình chi tiết
         btnFavoriteDetail.setOnClickListener(v -> {

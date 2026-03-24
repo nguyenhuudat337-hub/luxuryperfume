@@ -82,32 +82,17 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#99FFFFFF"
+        android:textColor="@color/black"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/Button3"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="10dp"
-            android:backgroundTint="#99FFFFFF"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Back"/>
-
-        <!-- Spacer đẩy nút bên phải -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
