@@ -31,8 +31,11 @@ public class ProfileFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private EditText edtUsername, edtPassword;
+    private EditText edtUsername, edtPassword,edtPhone,edtEmail,edtAddress;
     private TextView tvFullName;
+    private Button btnEdit;
+    private boolean isEditing = false;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -85,9 +88,14 @@ public class ProfileFragment extends Fragment {
 
         // Ánh xạ các view từ XML
         tvFullName = view.findViewById(R.id.textView10);
+        edtPhone = view.findViewById(R.id.editTextPhone);
+        edtEmail = view.findViewById(R.id.editTextTextEmailAddress);
+        edtAddress = view.findViewById(R.id.editTextText4);
         edtUsername = view.findViewById(R.id.editTextText3);
         edtPassword = view.findViewById(R.id.editTextTextPassword3);
+        btnEdit = view.findViewById(R.id.imageButton3);
 
+        enableEditing(false);
         // Đọc dữ liệu từ SharedPreferences
         loadUserData();
 
@@ -96,6 +104,45 @@ public class ProfileFragment extends Fragment {
             getActivity().finish();
             Toast.makeText(getContext(), "Sign out successfully!", Toast.LENGTH_SHORT).show();
         });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isEditing) {
+                    // Chuyển sang chế độ cho phép SỬA
+                    enableEditing(true);
+                    btnEdit.setText("Save"); // Đổi chữ nút thành Save
+                    isEditing = true;
+                } else {
+                    // Chuyển về chế độ CHỈ ĐỌC (Lưu dữ liệu)
+                    enableEditing(false);
+                    btnEdit.setText("Edit");
+                    btnEdit.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_edit, 0);
+                    isEditing = false;
+
+                    // Thực hiện logic lưu dữ liệu ở đây (ví dụ lưu vào SharedPreferences hoặc Database)
+                    saveProfileData();
+                }
+            }
+        });
+
+    }
+
+    private void enableEditing(boolean active) {
+        edtUsername.setEnabled(active);
+        edtPhone.setEnabled(active);
+        edtPassword.setEnabled(active);
+        edtEmail.setEnabled(active);
+        edtAddress.setEnabled(active);
+
+        if (active) {
+            edtUsername.requestFocus(); // Con trỏ nhảy vào ô đầu tiên khi bấm Edit
+        }
+    }
+
+    private void saveProfileData() {
+        // Code lưu dữ liệu của bạn ở đây
+        Toast.makeText(getContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
     }
     private void loadUserData() {
         // 1. Mở file SharedPreferences

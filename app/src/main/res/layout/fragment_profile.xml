@@ -29,6 +29,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="745dp"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -119,9 +121,11 @@
                 android:layout_height="50dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:enabled="false"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/style_box"
+                android:textColor="@color/white"
                 android:ems="10"
                 android:inputType="text"/>
 
@@ -145,8 +149,10 @@
                 android:layout_height="50dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:enabled="false"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"
+                android:textColor="@color/white"
                 android:background="@drawable/style_box"
                 android:ems="10"
                 android:inputType="phone" />
@@ -169,9 +175,11 @@
                 android:layout_height="50dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:enabled="false"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
                 android:textSize="20sp"
+                android:textColor="@color/white"
                 android:ems="10"
                 android:background="@drawable/style_box"
                 android:inputType="textPassword" />
@@ -195,6 +203,8 @@
                 android:layout_height="50dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:textColor="@color/white"
+                android:enabled="false"
                 android:layout_marginTop="30dp"
                 android:ems="10"
                 android:layout_marginStart="10dp"
@@ -219,6 +229,8 @@
                 android:layout_width="380dp"
                 android:layout_height="50dp"
                 android:paddingStart="12dp"
+                android:enabled="false"
+                android:textColor="@color/white"
                 android:paddingEnd="12dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="30dp"

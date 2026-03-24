@@ -10,6 +10,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="745dp"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
         android:fillViewport="true">
 
 
