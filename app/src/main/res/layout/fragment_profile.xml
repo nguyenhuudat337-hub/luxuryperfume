@@ -238,6 +238,32 @@
                 android:background="@drawable/style_box"
                 android:inputType="text"/>
 
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Date" />
+
+
+            <EditText
+                android:id="@+id/editTextText5"
+                android:layout_width="380dp"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:enabled="false"
+                android:textColor="@color/white"
+                android:paddingEnd="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:background="@drawable/style_box"
+                android:inputType="text"/>
+
 
 
 

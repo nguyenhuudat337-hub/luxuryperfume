@@ -1,6 +1,7 @@
 package com.example.luxuryperfume;
 
 import static android.content.Context.MODE_PRIVATE;
+import static android.content.Intent.getIntent;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,12 +27,13 @@ import java.util.ResourceBundle;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
+    private DatabaseHelper dbHelper;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private EditText edtUsername, edtPassword,edtPhone,edtEmail,edtAddress;
+    private EditText edtUsername, edtPassword,edtPhone,edtEmail,edtAddress,edtdate;
     private TextView tvFullName;
     private Button btnEdit;
     private boolean isEditing = false;
@@ -93,11 +95,25 @@ public class ProfileFragment extends Fragment {
         edtAddress = view.findViewById(R.id.editTextText4);
         edtUsername = view.findViewById(R.id.editTextText3);
         edtPassword = view.findViewById(R.id.editTextTextPassword3);
+        edtdate = view.findViewById(R.id.editTextText5);
         btnEdit = view.findViewById(R.id.imageButton3);
 
+        dbHelper = new DatabaseHelper(getContext());
+
         enableEditing(false);
-        // Đọc dữ liệu từ SharedPreferences
-        loadUserData();
+
+        int id = getActivity().getIntent().getIntExtra("id", -1);
+
+        User user = dbHelper.getUserByID(id);
+
+        tvFullName.setText(user.getUsername());
+        edtUsername.setText(user.getUsername());
+        edtPassword.setText(user.getPassword());
+        edtAddress.setText(user.getAddress());
+        edtEmail.setText(user.getEmail());
+        edtPhone.setText(user.getPhoneNumber());
+        edtdate.setText(user.getDate());
+
 
         view.findViewById(R.id.imageButton4).setOnClickListener(v -> {
             startActivity(new Intent(getContext(), MainActivity.class));
@@ -121,12 +137,14 @@ public class ProfileFragment extends Fragment {
                     isEditing = false;
 
                     // Thực hiện logic lưu dữ liệu ở đây (ví dụ lưu vào SharedPreferences hoặc Database)
-                    saveProfileData();
+                    saveProfileData(id);
                 }
             }
         });
 
     }
+
+
 
     private void enableEditing(boolean active) {
         edtUsername.setEnabled(active);
@@ -134,32 +152,55 @@ public class ProfileFragment extends Fragment {
         edtPassword.setEnabled(active);
         edtEmail.setEnabled(active);
         edtAddress.setEnabled(active);
+        edtdate.setEnabled(active);
 
         if (active) {
             edtUsername.requestFocus(); // Con trỏ nhảy vào ô đầu tiên khi bấm Edit
         }
     }
 
-    private void saveProfileData() {
-        // Code lưu dữ liệu của bạn ở đây
-        Toast.makeText(getContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
+    private void saveProfileData(int id) {
+        // Lấy dữ liệu từ UI
+        String username = edtUsername.getText().toString();
+        String password = edtPassword.getText().toString();
+        String email = edtEmail.getText().toString();
+        String phone = edtPhone.getText().toString();
+        String address = edtAddress.getText().toString();
+        String date = edtdate.getText().toString();
+
+
+        // Lấy user hiện tại
+        User currentUser = dbHelper.getUserByID(id);
+
+        if (currentUser != null) {
+            // Gán dữ liệu mới
+            currentUser.setUsername(username);
+            currentUser.setPassword(password);
+            currentUser.setEmail(email);
+            currentUser.setPhoneNumber(phone);
+            currentUser.setAddress(address);
+            currentUser.setDate(date);
+
+            // Update DB
+            boolean success = dbHelper.updateUser(currentUser);
+
+            if (success) {
+                Toast.makeText(getContext(), "Profile Updated!", Toast.LENGTH_SHORT).show();
+
+                // Cập nhật lại TextView
+                tvFullName.setText(username);
+            } else {
+                Toast.makeText(getContext(), "Update failed!", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(getContext(), "User not found!", Toast.LENGTH_SHORT).show();
+        }
     }
-    private void loadUserData() {
-        // 1. Mở file SharedPreferences
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences("USER_FILE", MODE_PRIVATE);
-
-        // 2. Lấy dữ liệu (Nếu không có thì trả về chuỗi mặc định)
-        String username = sharedPreferences.getString("username", "Unknown User");
-        String password = sharedPreferences.getString("password", "");
-
-        // 3. Hiển thị lên các ô nhập liệu
-        edtUsername.setText(username);
-        edtPassword.setText(password);
-        tvFullName.setText(username); // Hiển thị tên lớn ở trên đầu
-    }
-
-
 
 
 
 }
+
+
+
+
